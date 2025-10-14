@@ -18,7 +18,6 @@ const Navigation = () => {
           <NavLink to="/Pricing">PRICING</NavLink>
         </NavLinks>
       </NavigationContainer>
-      <Outlet />
     </Fragment>
   );
 };

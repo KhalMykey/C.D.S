@@ -21,8 +21,8 @@ export const LogoContainer = styled(Link)`
   width: 10%;
   padding: 25px;
   margin-top: 3px;
-  color: white;
-  font-weight: bold;
+  color: black;
+  font-weight: bolder;
   font-size: 70px;
   text-decoration: none;
 `;
@@ -38,5 +38,9 @@ export const NavLinks = styled.div`
 export const NavLink = styled(Link)`
   padding: 10px 15px;
   cursor: pointer;
-  color: white;
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 12px;
 `;
