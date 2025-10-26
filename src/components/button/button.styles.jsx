@@ -48,3 +48,5 @@ export const InvertedButton = styled(BaseButton)`
     border: none;
   }
 `;
+
+export const NavlinksButton = styled(BaseButton)``;

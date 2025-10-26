@@ -1,8 +1,8 @@
 import "./App.css";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Route, Routes } from "react-router-dom";
-import Navigation from "./routes/navigation/navigation.components";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import Display from "./routes/display/display.components";
 import Authentication from "./routes/authentication/authentication.components";
 
 import {
@@ -13,6 +13,7 @@ import { setCurrentUser } from "./store/user/user.reducer";
 
 const App = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((user) => {
@@ -21,19 +22,24 @@ const App = () => {
       }
       const pickedUser =
         user && (({ accessToken, email }) => ({ accessToken, email }))(user);
-      console.log(setCurrentUser(user));
+      // console.log(setCurrentUser(user));
       dispatch(setCurrentUser(pickedUser));
+      pickedUser ? navigate("/Dashboard") : navigate("/");
     });
 
     return unsubscribe;
   }, []);
   return (
     <Routes>
-      <Route path="/" element={<Authentication />}>
-        <Route path="SignIn" element={<div>Sign In Page</div>} />
-        <Route path="Features" element={<div>Features Page</div>} />
-        <Route path="Pricing" element={<div>Pricing Page</div>} />
-      </Route>
+      {/* first check the auth and if true render user dashboard, if false render authentication page */}
+      <Route path="/" element={<Authentication />} />
+      <Route path="Dashboard" element={<Display />} />
+      <Route path="Calendar" element={<Display />} />
+      <Route path="Playbook" element={<Display />} />
+      <Route path="Trades" element={<Display />} />
+      <Route path="Reports" element={<Display />} />
+      <Route path="Import" element={<Display />} />
+      <Route path="Settings" element={<Display />} />
     </Routes>
   );
 };

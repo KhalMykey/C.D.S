@@ -3,9 +3,6 @@ import styled from "styled-components";
 export const BannerContainer = styled.div`
   width: 100%;
   height: 150px;
-  /* background-color: #f5f5f5; */
-  //   background: radial-gradient(circle at top, #43470b, #434343);
-  //   background: radial-gradient(circle at top, #43470b, #ede1f2);
   background: radial-gradient(circle at top, #43470b, #2c2f34);
   display: flex;
   flex-direction: column;
